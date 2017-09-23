@@ -22,6 +22,16 @@
 		<title>PHP TODO List</title>
 	</head>
 	<body>
-
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-4">
+					<form class="add-new-task" autocomplete="off">
+						<div class="form-group">
+							<input type="text" name="new-task" placeholder="Add a new item...">
+						</div>
+					</form>
+				</div><!-- /.col-md-4 -->
+			</div><!-- /.row justify-content-center -->
+		</div><!-- /.container -->
 	</body>
 </html>
