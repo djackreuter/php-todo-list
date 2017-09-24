@@ -25,6 +25,17 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-4">
+					<div class="wrap">
+						<div class="task-list">
+							<ul>
+								<?php require("../connect.php"); ?>
+							</ul>
+						</div><!-- /.task-list -->
+					</div><!-- /.wrap -->
+				</div><!-- /.col-md-4 -->
+			</div><!-- /.row justify-content-center -->
+			<div class="row justify-content-center">
+				<div class="col-md-4">
 					<form class="add-new-task" autocomplete="off">
 						<div class="form-group">
 							<input type="text" name="new-task" placeholder="Add a new item...">
