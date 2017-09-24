@@ -8,6 +8,7 @@
 				integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
 		<!-- Custom CSS -->
+		<link rel="stylesheet" href="css/style.css"/>
 
 		<!-- jQuery v3.0 -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
@@ -25,7 +26,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-4">
-					<div class="wrap">
+					<div class="card">
 						<div class="task-list">
 							<ul>
 								<?php require("../connect.php"); ?>
