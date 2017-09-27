@@ -30,7 +30,20 @@
 					<div class="card">
 						<div class="task-list">
 							<ul>
-								<?php require("../connect.php"); ?>
+								<?php require("../connect.php");
+
+								$query = $mysqli->query("SELECT * FROM tasks ORDER BY date ASC, time ASC");
+
+								$numrows = mysqli_num_rows($query);
+								if($numrows > 0) {
+									while($row = mysqli_fetch_assoc($query)) {
+										$task_id = $row['id'];
+										$task_name = $row['task'];
+
+										echo "<li>" . '$task_name' . "</li>";
+									}
+								}
+								?>
 							</ul>
 						</div><!-- /.task-list -->
 					</div><!-- /.wrap -->
