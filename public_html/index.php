@@ -34,13 +34,14 @@
 
 								$query = $mysqli->query("SELECT * FROM tasks ORDER BY date ASC, time ASC");
 
+								// var_dump($query);
 								$numrows = mysqli_num_rows($query);
 								if($numrows > 0) {
 									while($row = mysqli_fetch_assoc($query)) {
 										$task_id = $row['id'];
 										$task_name = $row['task'];
 
-										echo "<li>" . '$task_name' . "</li>";
+										echo "<li>" . $task_name . "</li>";
 									}
 								}
 								?>
