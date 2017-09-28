@@ -1,3 +1,4 @@
+<?php require_once("../connect.php");?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -33,7 +34,7 @@
 
 			<div class="row justify-content-center">
 				<div class="col-md-4">
-					<form method="POST" action="php file location" class="add-new-task">
+					<form method="POST" action="../connect.php" class="add-new-task">
 						<div class="form-group">
 							<input type="text" name="task" placeholder="Add a new item...">
 							<button type="submit" name="submit" class="btn btn-primary">Submit</button>
@@ -60,31 +61,5 @@
 				</tr>
 			</tbody>
 		</table>
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-4">
-					<div class="card">
-						<div class="task-list">
-							<ul>
-								<?php require("../connect.php");
-
-								$query = $mysqli->query("SELECT * FROM tasks ORDER BY date ASC, time ASC");
-								$numrows = mysqli_num_rows($query);
-
-								if($numrows > 0) {
-									while($row = mysqli_fetch_assoc($query)) {
-										$task_id = $row['id'];
-										$task_name = $row['task'];
-
-										echo "<li>" . $task_name . "</li>";
-									}
-								}
-								?>
-							</ul>
-						</div><!-- /.task-list -->
-					</div><!-- /.wrap -->
-				</div><!-- /.col-md-4 -->
-			</div><!-- /.row justify-content-center -->
-		</div><!-- /.container -->
 	</body>
 </html>
