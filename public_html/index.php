@@ -1,4 +1,12 @@
-<?php require_once("../connect.php");?>
+<?php require_once("../connect.php");
+
+if(isset($_POST['submit'])) {
+	$task = $_POST['task'];
+
+	mysqli_query($conn, "INSERT INTO tasks (task) VALUES ('$task')");
+	header('location: index.php');
+}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -34,7 +42,7 @@
 
 			<div class="row justify-content-center">
 				<div class="col-md-4">
-					<form method="POST" action="../connect.php" class="add-new-task">
+					<form method="POST" action="../connect.php">
 						<div class="form-group">
 							<input type="text" name="task" placeholder="Add a new item...">
 							<button type="submit" name="submit" class="btn btn-primary">Submit</button>
