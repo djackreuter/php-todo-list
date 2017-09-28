@@ -11,7 +11,8 @@
 		<link rel="stylesheet" href="css/style.css"/>
 
 		<!-- jQuery v3.0 -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+		<!--		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
@@ -24,6 +25,41 @@
 		<title>PHP TODO List</title>
 	</head>
 	<body>
+		<div class="jumbotron">
+			<h3>Todo List</h3>
+		</div>
+		<div class="container">
+
+
+			<div class="row justify-content-center">
+				<div class="col-md-4">
+					<form method="POST" action="php file location" class="add-new-task">
+						<div class="form-group">
+							<input type="text" name="task" placeholder="Add a new item...">
+							<button type="submit" name="submit" class="btn btn-primary">Submit</button>
+						</div>
+					</form>
+				</div><!-- /.col-md-4 -->
+			</div><!-- /.row justify-content-center -->
+		</div><!-- /.container -->
+		<table class="table">
+			<thead class="thead-inverse">
+				<tr>
+					<th>N</th>
+					<th>Task</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td class="task">This is the first task placeholder</td>
+					<td class="delete">
+						<a href="#">x</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-4">
@@ -33,9 +69,8 @@
 								<?php require("../connect.php");
 
 								$query = $mysqli->query("SELECT * FROM tasks ORDER BY date ASC, time ASC");
-
-								// var_dump($query);
 								$numrows = mysqli_num_rows($query);
+
 								if($numrows > 0) {
 									while($row = mysqli_fetch_assoc($query)) {
 										$task_id = $row['id'];
@@ -48,15 +83,6 @@
 							</ul>
 						</div><!-- /.task-list -->
 					</div><!-- /.wrap -->
-				</div><!-- /.col-md-4 -->
-			</div><!-- /.row justify-content-center -->
-			<div class="row justify-content-center">
-				<div class="col-md-4">
-					<form class="add-new-task" autocomplete="off">
-						<div class="form-group">
-							<input type="text" name="new-task" placeholder="Add a new item...">
-						</div>
-					</form>
 				</div><!-- /.col-md-4 -->
 			</div><!-- /.row justify-content-center -->
 		</div><!-- /.container -->
