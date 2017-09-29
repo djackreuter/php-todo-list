@@ -6,6 +6,8 @@ if(isset($_POST['submit'])) {
 	mysqli_query($conn, "INSERT INTO tasks (task) VALUES ('$task')");
 	header('location: index.php');
 }
+
+$tasks = mysqli_query($conn, "SELECT * FROM tasks");
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,13 +60,17 @@ if(isset($_POST['submit'])) {
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td class="task">This is the first task placeholder</td>
-					<td class="delete">
-						<a href="#">x</a>
-					</td>
-				</tr>
+				<?php
+				while($row = mysqli_fetch_array($tasks)) {
+				echo '<tr>';
+					echo '<td>' . $row['id'] . '</td>';
+					echo '<td class="task">' . $row['task'] . '</td>';
+					echo '<td class="delete">' .
+						'<a href="#">x</a>' .
+					'</td>';
+				echo '</tr>';
+				 }
+				?>
 			</tbody>
 		</table>
 	</body>
