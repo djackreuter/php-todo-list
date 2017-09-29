@@ -38,11 +38,9 @@ if(isset($_POST['submit'])) {
 			<h3>Todo List</h3>
 		</div>
 		<div class="container">
-
-
 			<div class="row justify-content-center">
 				<div class="col-md-4">
-					<form method="POST" action="../connect.php">
+					<form method="POST" action="index.php">
 						<div class="form-group">
 							<input type="text" name="task" placeholder="Add a new item...">
 							<button type="submit" name="submit" class="btn btn-primary">Submit</button>
