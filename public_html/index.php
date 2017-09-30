@@ -5,7 +5,7 @@ $errors = "";
 if(isset($_POST['submit'])) {
 	$task = $_POST['task'];
 	$task = filter_var($task, FILTER_SANITIZE_STRING);
-	if(empty($task)) {
+	if(empty($task) === true) {
 		$errors = "You can't submit a blank task";
 	} else {
 		$stmt = $mysqli->stmt_init();
@@ -17,6 +17,12 @@ if(isset($_POST['submit'])) {
 		}
 		header('location: index.php');
 	}
+}
+
+if(isset($_GET['del_task'])) {
+	$id = $_GET['del_task'];
+	mysqli_query($mysqli, "DELETE FROM tasks WHERE id=$id");
+	header('location: index.php');
 }
 
 $tasks = mysqli_query($mysqli, "SELECT * FROM tasks");
@@ -82,7 +88,7 @@ $tasks = mysqli_query($mysqli, "SELECT * FROM tasks");
 					echo '<td>' . $row['id'] . '</td>';
 					echo '<td class="task">' . $row['task'] . '</td>';
 					echo '<td class="delete">' .
-						'<a href="#">x</a>' .
+						'<a href="index.php?del_task=' . $row['id'] . '">x</a>' .
 						'</td>';
 					echo '</tr>';
 				}
