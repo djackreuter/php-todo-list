@@ -83,14 +83,16 @@ $tasks = mysqli_query($mysqli, "SELECT * FROM tasks");
 			</thead>
 			<tbody>
 				<?php
+				$i = 1;
 				while($row = mysqli_fetch_array($tasks)) {
 					echo '<tr>';
-					echo '<td>' . $row['id'] . '</td>';
+					echo '<td>' . $i . '</td>';
 					echo '<td class="task">' . $row['task'] . '</td>';
 					echo '<td class="delete">' .
 						'<a href="index.php?del_task=' . $row['id'] . '">x</a>' .
 						'</td>';
 					echo '</tr>';
+					$i++;
 				}
 				?>
 			</tbody>
