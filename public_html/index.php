@@ -73,29 +73,35 @@ $tasks = mysqli_query($mysqli, "SELECT * FROM tasks");
 				</div><!-- /.col-md-4 -->
 			</div><!-- /.row justify-content-center -->
 		</div><!-- /.container -->
-		<table class="table">
-			<thead class="thead-inverse">
-				<tr>
-					<th>N</th>
-					<th>Task</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php
-				$i = 1;
-				while($row = mysqli_fetch_array($tasks)) {
-					echo '<tr>';
-					echo '<td>' . $i . '</td>';
-					echo '<td class="task">' . $row['task'] . '</td>';
-					echo '<td class="delete">' .
-						'<a href="index.php?del_task=' . $row['id'] . '">x</a>' .
-						'</td>';
-					echo '</tr>';
-					$i++;
-				}
-				?>
-			</tbody>
-		</table>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-8">
+					<table class="table table-striped">
+						<thead class="thead-inverse">
+							<tr>
+								<th>N</th>
+								<th>Task</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+							$i = 1;
+							while($row = mysqli_fetch_array($tasks)) {
+								echo '<tr>';
+								echo '<td>' . $i . '</td>';
+								echo '<td class="task">' . $row['task'] . '</td>';
+								echo '<td class="delete">' .
+									'<a href="index.php?del_task=' . $row['id'] . '">x</a>' .
+									'</td>';
+								echo '</tr>';
+								$i++;
+							}
+							?>
+						</tbody>
+					</table>
+				</div><!-- /.col-6 -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
 	</body>
 </html>
