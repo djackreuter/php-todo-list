@@ -51,11 +51,11 @@ $tasks = mysqli_query($mysqli, "SELECT * FROM tasks");
 				  integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
 				  crossorigin="anonymous"></script>
 		<script src="js/script.js" type="text/javascript"></script>
-		<title>PHP TODO List</title>
+		<title>PHP TO-DO List</title>
 	</head>
 	<body>
 		<div class="jumbotron">
-			<h3>Todo List</h3>
+			<h3>To-do List</h3>
 		</div>
 		<div class="container">
 			<div class="row justify-content-center">
