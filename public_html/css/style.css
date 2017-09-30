@@ -1,5 +1,4 @@
-.card {
-	width: 15rem;
-	height: 20rem;
-	background-color: lightgray;
+.table, thead th {
+	text-align: center;
 }
+

@@ -55,7 +55,7 @@ $tasks = mysqli_query($mysqli, "SELECT * FROM tasks");
 	</head>
 	<body>
 		<div class="jumbotron">
-			<h3>To-do List</h3>
+			<h3 class="display-3">To-do List</h3>
 		</div>
 		<div class="container">
 			<div class="row justify-content-center">
@@ -79,7 +79,7 @@ $tasks = mysqli_query($mysqli, "SELECT * FROM tasks");
 					<table class="table table-striped">
 						<thead class="thead-inverse">
 							<tr>
-								<th>N</th>
+								<th>Task No.</th>
 								<th>Task</th>
 								<th>Action</th>
 							</tr>
