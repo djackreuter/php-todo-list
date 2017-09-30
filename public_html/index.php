@@ -66,7 +66,7 @@ $tasks = mysqli_query($mysqli, "SELECT * FROM tasks");
 						}
 						?>
 						<div class="form-group">
-							<input type="text" name="task" placeholder="Add a new item...">
+							<input class="input" type="text" name="task" placeholder="Add a new item...">
 							<button type="submit" name="submit" class="btn btn-primary">Submit</button>
 						</div>
 					</form>
