@@ -54,9 +54,7 @@ $tasks = mysqli_query($mysqli, "SELECT * FROM tasks");
 		<title>PHP TO-DO List</title>
 	</head>
 	<body>
-		<div class="jumbotron">
 			<h3 class="display-3">To-do List</h3>
-		</div>
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-4">
@@ -76,8 +74,8 @@ $tasks = mysqli_query($mysqli, "SELECT * FROM tasks");
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-8">
-					<table class="table table-striped">
-						<thead class="thead-inverse">
+					<table class="table">
+						<thead class="thead">
 							<tr>
 								<th>Task No.</th>
 								<th>Task</th>
