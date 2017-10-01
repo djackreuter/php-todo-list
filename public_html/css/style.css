@@ -1,3 +1,7 @@
+body {
+	background-image: url("../images/legal-pad.png");
+}
+
 .table, thead th {
 	text-align: center;
 }
