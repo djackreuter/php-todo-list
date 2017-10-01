@@ -39,6 +39,8 @@ $tasks = mysqli_query($mysqli, "SELECT * FROM tasks");
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="css/style.css"/>
 
+		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
 		<!-- jQuery v3.0 -->
 		<!--		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>-->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
