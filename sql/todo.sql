@@ -1,6 +1,0 @@
--- Create table
-CREATE TABLE tasks (
-	id INT UNSIGNED AUTO_INCREMENT NOT NULL,
-	task VARCHAR(255) NOT NULL,
-	PRIMARY KEY (id)
-);
