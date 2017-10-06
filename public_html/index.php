@@ -2,6 +2,7 @@
 
 $errors = "";
 
+// enter a new task
 if(isset($_POST['submit'])) {
 	$task = $_POST['task'];
 	$task = filter_var($task, FILTER_SANITIZE_STRING);
@@ -12,17 +13,11 @@ if(isset($_POST['submit'])) {
 			$statement = $pdo->prepare($query);
 			$statement->execute();
 		}
-//		$stmt = $mysqli->stmt_init();
-//		if($stmt->prepare("INSERT INTO tasks (task) VALUES ('$task')")) {
-//			$stmt->bind_param("s", $task);
-//			$stmt->execute();
-//			$stmt->fetch();
-//			$stmt->close();
-//		}
 		header('location: index.php');
 	}
 }
 
+// delete task
 if(isset($_GET['del_task'])) {
 	$id = $_GET['del_task'];
 	$query = "DELETE FROM tasks WHERE id = $id";
@@ -32,7 +27,7 @@ if(isset($_GET['del_task'])) {
 	header('location: index.php');
 }
 
-// $tasks = mysqli_query($mysqli, "SELECT * FROM tasks");
+// display tasks
 $statement = $pdo->query("SELECT * FROM tasks");
 $statement->setFetchMode(PDO::FETCH_ASSOC);
 ?>
@@ -95,7 +90,6 @@ $statement->setFetchMode(PDO::FETCH_ASSOC);
 						<tbody>
 							<?php
 							$i = 1;
-//							while($row = mysqli_fetch_array($tasks)) {
 							while($row = $statement->fetch()) {
 								echo '<tr>';
 								echo '<td>' . $i . '</td>';
