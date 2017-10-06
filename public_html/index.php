@@ -23,7 +23,6 @@ if(isset($_GET['del_task'])) {
 	$query = "DELETE FROM tasks WHERE id = $id";
 	$statement = $pdo->prepare($query);
 	$statement->execute();
-	// mysqli_query($mysqli, "DELETE FROM tasks WHERE id=$id");
 	header('location: index.php');
 }
 
