@@ -25,16 +25,16 @@ if(isset($_POST['submit'])) {
 
 if(isset($_GET['del_task'])) {
 	$id = $_GET['del_task'];
-	$query = "DELETE FROM tasks WHERE id=:id";
+	$query = "DELETE FROM tasks WHERE id = $id";
 	$statement = $pdo->prepare($query);
-	$parameters = ["id" => $this->id];
-	$statement->execute($parameters);
+	$statement->execute();
 	// mysqli_query($mysqli, "DELETE FROM tasks WHERE id=$id");
 	header('location: index.php');
 }
 
 // $tasks = mysqli_query($mysqli, "SELECT * FROM tasks");
 $statement = $pdo->query("SELECT * FROM tasks");
+$statement->setFetchMode(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html>
@@ -96,7 +96,7 @@ $statement = $pdo->query("SELECT * FROM tasks");
 							<?php
 							$i = 1;
 //							while($row = mysqli_fetch_array($tasks)) {
-							while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+							while($row = $statement->fetch()) {
 								echo '<tr>';
 								echo '<td>' . $i . '</td>';
 								echo '<td class="task">' . $row['task'] . '</td>';
