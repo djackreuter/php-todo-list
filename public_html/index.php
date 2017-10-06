@@ -8,24 +8,34 @@ if(isset($_POST['submit'])) {
 	if(empty($task) === true) {
 		$errors = "You can't submit a blank task";
 	} else {
-		$stmt = $mysqli->stmt_init();
-		if($stmt->prepare("INSERT INTO tasks (task) VALUES ('$task')")) {
-			$stmt->bind_param("s", $task);
-			$stmt->execute();
-			$stmt->fetch();
-			$stmt->close();
+		if($query = ("INSERT INTO tasks (task) VALUES ('$task')")) {
+			$statement = $pdo->prepare($query);
+			$statement->execute($query);
 		}
+//		$stmt = $mysqli->stmt_init();
+//		if($stmt->prepare("INSERT INTO tasks (task) VALUES ('$task')")) {
+//			$stmt->bind_param("s", $task);
+//			$stmt->execute();
+//			$stmt->fetch();
+//			$stmt->close();
+//		}
 		header('location: index.php');
 	}
 }
 
 if(isset($_GET['del_task'])) {
 	$id = $_GET['del_task'];
-	mysqli_query($mysqli, "DELETE FROM tasks WHERE id=$id");
+	$query = "DELETE FROM tasks WHERE id=:id";
+	$statement = $pdo->prepare($query);
+	$parameters = ["id" => $this->id];
+	$statement->execute($parameters);
+	// mysqli_query($mysqli, "DELETE FROM tasks WHERE id=$id");
 	header('location: index.php');
 }
 
-$tasks = mysqli_query($mysqli, "SELECT * FROM tasks");
+// $tasks = mysqli_query($mysqli, "SELECT * FROM tasks");
+$statement = $pdo->query("SELECT * FROM tasks");
+$statement->setFetchMode(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html>
@@ -86,7 +96,8 @@ $tasks = mysqli_query($mysqli, "SELECT * FROM tasks");
 						<tbody>
 							<?php
 							$i = 1;
-							while($row = mysqli_fetch_array($tasks)) {
+//							while($row = mysqli_fetch_array($tasks)) {
+							while($row = $statement->fetch()) {
 								echo '<tr>';
 								echo '<td>' . $i . '</td>';
 								echo '<td class="task">' . $row['task'] . '</td>';
