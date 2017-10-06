@@ -10,7 +10,7 @@ if(isset($_POST['submit'])) {
 	} else {
 		if($query = ("INSERT INTO tasks (task) VALUES ('$task')")) {
 			$statement = $pdo->prepare($query);
-			$statement->execute($query);
+			$statement->execute();
 		}
 //		$stmt = $mysqli->stmt_init();
 //		if($stmt->prepare("INSERT INTO tasks (task) VALUES ('$task')")) {
@@ -35,7 +35,6 @@ if(isset($_GET['del_task'])) {
 
 // $tasks = mysqli_query($mysqli, "SELECT * FROM tasks");
 $statement = $pdo->query("SELECT * FROM tasks");
-$statement->setFetchMode(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html>
@@ -97,7 +96,7 @@ $statement->setFetchMode(PDO::FETCH_ASSOC);
 							<?php
 							$i = 1;
 //							while($row = mysqli_fetch_array($tasks)) {
-							while($row = $statement->fetch()) {
+							while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
 								echo '<tr>';
 								echo '<td>' . $i . '</td>';
 								echo '<td class="task">' . $row['task'] . '</td>';
